@@ -29,7 +29,9 @@ public class Judge extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/plain;charset=UTF-8");
-        String id = new String(request.getParameter("id"));
+        String subid = new String(request.getParameter("subid"));
+        String testid = new String(request.getParameter("testid"));
+        String qid = new String(request.getParameter("qid"));
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. 
             out.println("<!DOCTYPE html>");
@@ -44,7 +46,7 @@ public class Judge extends HttpServlet {
             */
             out.println("Submission added to queue");
         }
-        Server.Judge(id);
+        Server.Judge(subid,testid,qid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

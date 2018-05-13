@@ -9,8 +9,8 @@
  * @author christy
  */
 public class Server {
-    public static void Judge (String id) {
-        System.out.println("Judging "+id);
+    public static void Judge (String subid,String testid,String qid) {
+        System.out.println("Judging "+subid+" of question "+qid+" of test "+testid);
     }
     
 }
