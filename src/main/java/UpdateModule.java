@@ -67,7 +67,7 @@ public class UpdateModule {
         int ret = 0;
         try {
             conn.setAutoCommit(false);
-            String query = "Update  submission set score = ? status = ? where id = ?";
+            String query = "Update  submission set score = ? , status = ? where id = ?";
             //System.out.println(query);
             prestmt = conn.prepareStatement(query);
             prestmt.setInt(1,score);

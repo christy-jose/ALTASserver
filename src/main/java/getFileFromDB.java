@@ -18,8 +18,8 @@ import com.mongodb.MongoException;
  */
 public class getFileFromDB {
     
-     public int getFile(String path,String filename) {
-        // returns 1 on success  
+     public int getFile(String path,String filename,int val) {
+        // returns 0 on success  
         long r;
         int ret;
         ConnectDB connection = new ConnectDB();
@@ -27,7 +27,20 @@ public class getFileFromDB {
             DB db = connection.connectMongo();
             GridFS gridFs = new GridFS(db);
             GridFSDBFile file=gridFs.findOne(filename);
-            File f = new File(path+"/"+filename);
+            if(file!=null){
+                System.out.println("file access success");
+            }
+            else {
+                System.out.println("No such file");
+                return 2;
+            }
+            File f=null;
+            if(val==1) {
+                f = new File(path+"/"+filename+".cpp");
+            }
+            else {
+                f = new File(path+"/"+filename);
+            }
             r=file.writeTo(f);
         }
         catch (IOException ioe) {

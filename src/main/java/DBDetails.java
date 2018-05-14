@@ -13,11 +13,31 @@ import java.util.Properties;
 public class DBDetails {
     String phost,pport,pdbname,puser,ppass;
     String mhost,mport,mdbname,muser,mpass;
-    private File DBConfig = new File("DBconfig.properties");
+    private File DBConfig = new File("/home/christy/NetBeansProjects/ALTASserver/DBconfig.properties");
     private Properties configProps;
     public int fetchDetails() {
         InputStream inputStream = null;
         configProps = new java.util.Properties();
+        /*
+        try {
+            Process p = Runtime.getRuntime().exec("pwd");
+            //System.out.println("Successful");
+            p.waitFor();
+            ///*
+            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            StringBuilder sb = new StringBuilder();
+            String line = "";			
+            while ((line = reader.readLine())!= null) {
+                sb.append(line + "\n");
+                System.out.println(sb.toString());
+            }
+           //
+        }
+        catch( Exception e) {
+            System.out.println( e.getMessage());
+        }
+        //*/
+        //System.out.println("end");
         try {
             inputStream = new FileInputStream(DBConfig);
             configProps.load(inputStream);
